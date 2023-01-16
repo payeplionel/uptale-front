@@ -1,0 +1,12 @@
+<form [formGroup]="exportFileForm" (ngSubmit)="onSubmitForm()">
+    <div class="contain">
+        <div>
+            <button mat-stroked-button color="accent" class="filename"><label for="file">{{filename}}</label></button>
+            <input type="file" id="file" class="inputfile" #UploadFileInput (change)="onFileChange($event)" multiple="multiple" accept="*/csv" formControlName="file" />
+        </div>
+        <div>
+            <button mat-button mat-dialog-close>Annuler</button>
+            <button mat-button [mat-dialog-close]="true" cdkFocusInitial type="submit">Importer</button>
+        </div>
+    </div>
+</form>

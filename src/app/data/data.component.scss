@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@700&family=Ubuntu:wght@300&display=swap');
+.contain {
+    overflow: auto;
+    .import {
+        display: flex;
+        gap: 10px;
+        position: absolute;
+        right: 3vw;
+        margin-top: 0.5vh;
+    }
+    .datas {
+        margin-top: 4vw;
+        display: flex;
+        flex-flow: row wrap;
+        height: 70vh;
+        justify-content: flex-start;
+        gap: 2vw;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        .data {
+            background-color: rgba($color: #ffffff, $alpha: 0.02);
+            cursor: pointer;
+            padding: 1vw;
+            width: 250px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+    }
+    .paginator {
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .images {
+        z-index: 1;
+        position: absolute;
+        right: 0vw;
+        bottom: 0vh;
+    }
+}
+
+table {
+    width: 100%;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.spinner {
+    max-height: 0.5vh;
+}
+
+.images {
+    position: absolute;
+    height: 10vw;
+    width: 10vw;
+    background-size: cover;
+}
+
+.animations {
+    position: absolute;
+    bottom: 0;
+    right: 40vw;
+}
+
+.image-1 {
+    bottom: 0;
+    right: 0;
+    background-image: url(../../assets/img/img-1.gif);
+}
+
+.image-2 {
+    bottom: 0;
+    left: 0;
+    background-image: url(../../assets/img/img-2.gif);
+}
+
+@keyframes data-choice-entrance {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

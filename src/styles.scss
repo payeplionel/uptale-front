@@ -1,1 +1,113 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$uptale-primary: mat.define-palette(mat.$indigo-palette);
+$uptale-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+// The warn palette is optional (defaults to red).
+$uptale-warn: mat.define-palette(mat.$red-palette);
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$uptale-theme: mat.define-light-theme(( color: ( primary: $uptale-primary, accent: $uptale-accent, warn: $uptale-warn, )));
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($uptale-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.sun-color {
+    color: #30336b;
+}
+
+.moon-color {
+    color: white;
+}
+
+.moon-head {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.moon-contain {
+    background-color: #34495e;
+    color: white;
+}
+
+.moon-table {
+    background-color: #3c6382;
+    color: white;
+}
+
+.sun-mode {
+    background-color: white;
+    color: #30336b;
+}
+
+.data-mode-moon {
+    box-shadow: rgba(248, 239, 186, 0.1) 0px 1px 2px 0px;
+}
+
+.data-mode-sun {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+.data-mode-select{
+  animation: data-mode-select  5s ease 0s infinite normal forwards;
+}
+
+.data-mode-sun:hover {
+    animation: data-sun-choice 1s ease 0s 1 normal forwards;
+}
+
+.data-mode-moon:hover {
+    animation: data-moon-choice 1s ease 0s 1 normal forwards;
+}
+
+.panel-moon {
+    background-color: #f6e58d;
+}
+
+@keyframes data-sun-choice {
+    0% {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+    100% {
+        box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    }
+}
+
+@keyframes data-moon-choice {
+    0% {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    }
+    100% {
+        box-shadow: rgba(248, 239, 186, 0.5) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    }
+}
+
+@keyframes data-mode-select {
+  0% {
+    box-shadow: rgba(255, 255, 255, 0.8) -6px -2px 16px 0px,rgba(255, 77, 77, 0.5) 6px 2px 16px 0px;
+  }
+  100% {
+    box-shadow: rgba(255, 77, 77, 0.5) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  }
+}

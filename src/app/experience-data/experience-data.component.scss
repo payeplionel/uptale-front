@@ -1,0 +1,67 @@
+.action-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    span {
+        color: #dcdde1;
+        font-size: x-small;
+    }
+}
+
+.icon {
+    display: flex;
+    justify-content: space-evenly;
+    height: 2.5vw;
+    width: 2.5vw;
+    border: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+    image-rendering: crisp-edges;
+}
+
+.icon-add {
+    background-image: url(../../assets/icons/add.png);
+    background-size: cover;
+}
+
+.icon-add:hover {
+    background-image: url(../../assets/icons/add.gif);
+    background-size: cover;
+}
+
+.icon-group {
+    background-image: url(../../assets/icons/group.png);
+    background-size: cover;
+}
+
+.icon-group:hover {
+    background-image: url(../../assets/icons/group.gif);
+    background-size: cover;
+}
+
+.icon-view {
+    background-image: url(../../assets/icons/view.png);
+    background-size: cover;
+}
+
+.icon-view:hover {
+    background-image: url(../../assets/icons/view.gif);
+    background-size: cover;
+}
+
+.icon-delete {
+    background-image: url(../../assets/icons/delete-200.png);
+    background-size: cover;
+}
+
+.icon-delete:hover {
+    background-image: url(../../assets/icons/delete-200.gif);
+    background-size: cover;
+}
+
+.icon-loading {
+    background-image: url(../../assets/icons/loading.gif);
+    background-size: cover;
+}

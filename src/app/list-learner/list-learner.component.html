@@ -1,0 +1,49 @@
+<div class="example-container">
+    <mat-form-field appearance="standard">
+        <mat-label [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'">Rechercher un utilisateur</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+    </mat-form-field>
+    <div class="data-table">
+        <table mat-table [dataSource]="listSource" [ngClass]="global.isChecked == true ? 'moon-table' : 'sun-mode'">
+            <ng-container matColumnDef="firstname">
+                <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> Prénom </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'">
+                    <input matInput [(ngModel)]="element.learner.learnerFirstname">
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="lastname">
+                <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> nom </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'">
+                    <input matInput [(ngModel)]="element.learner.learnerLastname" />
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="utility">
+                <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> Utilité </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'">
+                    <mat-slide-toggle [checked]="element.useful" (click)="changeUseful(element.sessionId)">
+                        <div *ngIf="element.useful == false ; then blockObligatoire else blockpasObligatoire"></div>
+                        <ng-template #blockObligatoire> Non </ng-template>
+                        <ng-template #blockpasObligatoire> Oui </ng-template>
+                    </mat-slide-toggle>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef class="head"> </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button matTooltip="Valider le changement" color="primary" (click)="changeNames(element.learner.idLearner, element.learner.learnerLastName, element.learner.learnerFirstName)">
+                        <mat-icon color="primary">done</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> session </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> {{ element.session }} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="sticky-head"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="2">Pas de données pour "{{input.value}} "</td>
+            </tr>
+        </table>
+    </div>
+</div>

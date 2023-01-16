@@ -1,0 +1,52 @@
+<div class="choice ">
+    <span> 
+        <button mat-icon-button (click)="showLegend()">
+            <mat-icon>legend_toggle</mat-icon>
+        </button>
+    </span>
+    <span> 
+        <button mat-icon-button (click)="export.exportTable( 'csv',{fileName: 'data'})" matTooltip="Télécharger les données">
+            <span class="material-symbols-outlined">download</span>
+    </button>
+    </span>
+</div>
+<div>
+    <div>
+        <table mat-table matTableExporter [dataSource]="chooseSource" #export="matTableExporter" [ngClass]="global.isChecked == true ? 'moon-table' : 'sun-mode'">
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> Actions </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> {{element.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> Nombres </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> {{element.number}} </td>
+            </ng-container>
+            <ng-container matColumnDef="pourcentage">
+                <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> Pourcentages </th>
+                <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> {{element.percent | percent}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsTags; sticky: true" class="sticky-head"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsTags;"></tr>
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'">Aucun élément</td>
+            </tr>
+        </table>
+    </div>
+    <!--<div class="legend" [hidden]="hideLegend">
+        <table mat-table matTableExporter [dataSource]="legendSource">
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef class="head"> Éléments </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef class="head"> affiché </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-slide-toggle [checked]="element.status" (click)="visibility(element.id)">
+                    </mat-slide-toggle>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayerdLegend; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayerdLegend;"></tr>
+        </table>
+    </div>-->
+</div>

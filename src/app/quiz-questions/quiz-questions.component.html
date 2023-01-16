@@ -1,0 +1,15 @@
+<span>Répartition des donnée En fonction :</span>
+<div class="contain">
+    <div class="item">
+      <div [ngClass]="{ 'background-loading': stat.genreLoading == true }"> <span [hidden]="stat.genreLoading">du genre</span></div>
+        <div [ngClass]="{ 'background-loading': stat.genreLoading == true }">
+            <canvas id="chartGenre"></canvas>
+        </div>
+    </div>
+    <div class="item">
+        <div [ngClass]="{ 'background-loading': stat.cycleLoading == true }"><span [hidden]="stat.cycleLoading"> des réponses </span></div>
+        <div [ngClass]="{ 'background-loading': stat.cycleLoading == true }">
+            <canvas id="chartCycle"></canvas>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div *ngIf="global.loadingQuiz">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
+<div class="contain">
+    <div class="choice-stats">
+        <button [ngClass]="{'data-mode-moon' : global.isChecked == true && choice != 1,'data-mode-sun' : global.isChecked == false && choice != 1,
+    'data-mode-select': choice == 1}" mat-stroked-button (click)="onChoice(1)">Gestion du temps</button>
+        <button [ngClass]="{'data-mode-moon' : global.isChecked == true && choice != 2,'data-mode-sun' : global.isChecked == false && choice != 2,
+    'data-mode-select': choice == 2}" mat-stroked-button (click)="onChoice(2)">Gestion des ressources</button>
+    </div>
+    <div class="import">
+        <button [ngClass]="global.isChecked == true ? 'data-mode-moon' : 'data-mode-sun'" mat-stroked-button (click)="openUploadQuestionnaire()">Questionnaire</button>
+        <button [ngClass]="global.isChecked == true ? 'data-mode-moon' : 'data-mode-sun'" (click)="openUploadQuiz()" mat-stroked-button>Importer un questionnaire</button>
+    </div>
+    <div class="selection">
+        <div>
+            <mat-form-field>
+                <mat-label [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'">Expériences : </mat-label>
+                <mat-select [(value)]="global.selectExperience">
+                    <mat-option *ngFor="let experience of global.experiences" [value]="experience.experienceId" (click)="changeExperience(experience.experienceId)">{{experience.experienceId}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="datas" *ngIf="choice == 0;">
+        <div>
+            <app-quiz-questions></app-quiz-questions>
+        </div>
+        <div>
+            <app-stats-answer-group [answerSource]="answerSource"></app-stats-answer-group>
+        </div>
+    </div>
+    <div *ngIf="choice == 1;">
+        <app-stats-time-scene [experience]="global.selectExperience"></app-stats-time-scene>
+    </div>
+    <div *ngIf="choice == 2;">
+        <app-manage-ressources></app-manage-ressources>
+    </div>
+</div>

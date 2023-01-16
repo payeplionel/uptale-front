@@ -1,0 +1,64 @@
+<div class="contain">
+  <h3>Ajout d'une nouvelle ressource</h3>
+
+  <form [formGroup]="ressourcesForm" (submit)="onSubmitForm()">
+    <div class="gestion">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ouverture</mat-label>
+        <input matInput [formControlName]="'ressourceOpen'">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Fermeture</mat-label>
+        <input matInput [formControlName]="'ressourceClose'">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Importance</mat-label>
+        <mat-select [formControlName]="'importance'">
+          <mat-option value="indispensables">Indispensables</mat-option>
+          <mat-option value="moyennement indispensables">Moyennement indispensables</mat-option>
+          <mat-option value="inintéressantes dans ce cas clinique">Inintéressantes dans ce cas clinique</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button color="primary"  type="submit" [disabled]="!ressourcesForm.valid">Ajouter</button>
+    </div>
+  </form>
+
+  <table mat-table matTableExporter [dataSource]="ressourcesSource" #export="matTableExporter" [ngClass]="global.isChecked == true ? 'moon-table' : 'sun-mode'">
+    <ng-container matColumnDef="open">
+      <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> Ouverture </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'">
+        <textarea matInput [(ngModel)]="element.ressourceOpen"> </textarea>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="close">
+      <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> Fermeture </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'">
+        <textarea matInput [(ngModel)]="element.ressourceClose"> </textarea>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="importance">
+      <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> Importance </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'">
+        <mat-select [(value)]="element.importance">
+          <mat-option value="indispensables">Indispensables</mat-option>
+          <mat-option value="moyennement indispensables">Moyennement indispensables</mat-option>
+          <mat-option value="inintéressantes dans ce cas clinique">Inintéressantes dans ce cas clinique</mat-option>
+        </mat-select>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> Actions </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'">
+        <div class="actions">
+          <span class="icon icon-delete" (click)="onDeleteRessource(element)"></span>
+          <span class="icon icon-check" (click)="onUpdateRessource(element)"></span>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedRessources; sticky: true" class="sticky-head"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedRessources;"></tr>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'">Aucun élément</td>
+    </tr>
+  </table>
+</div>

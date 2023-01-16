@@ -1,0 +1,5 @@
+<div class="contain" [ngClass]="{ 'background-loading': global.loadingTime == true }">
+    <div [hidden]="global.loadingTime" class="coming">
+        <canvas id="time"></canvas>
+    </div>
+</div>

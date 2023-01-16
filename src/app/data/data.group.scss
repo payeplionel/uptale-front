@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@700&family=Ubuntu:wght@300&display=swap');
+.container {
+    background-color: rgba($color: #fff8f800, $alpha: 0);
+    margin: auto;
+    width: 40vw;
+    max-height: 80vh;
+    padding: 10px;
+    overflow: auto;
+    table {
+        width: 100%;
+    }
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .icon {
+        display: flex;
+        justify-content: space-evenly;
+        height: 3vw;
+        width: 3vw;
+        border: hidden;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+}
+
+.icon-delete {
+    background-image: url(../../assets/icons/delete.png);
+    background-size: cover;
+}
+
+.icon-delete:hover {
+    background-image: url(../../assets/icons/delete.gif);
+    background-size: cover;
+}
+
+.icon-check {
+    background-image: url(../../assets/icons/check.png);
+    background-size: cover;
+}
+
+.icon-check:hover {
+    background-image: url(../../assets/icons/check.gif);
+    background-size: cover;
+}
+
+.icon-loading {
+    background-image: url(../../assets/icons/loading.gif);
+    background-size: cover;
+}

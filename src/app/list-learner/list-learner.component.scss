@@ -1,0 +1,22 @@
+table {
+    width: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    td,
+    th {
+        padding: 0.5vh;
+    }
+}
+
+.example-container {
+    margin-top: 5vh;
+}
+
+.data-table {
+    max-height: 50vh;
+    min-width: 35vw;
+    overflow: auto;
+}
+
+tr:hover:not(.sticky-head) {
+    background: rgba($color: #dfe6e9, $alpha: 0.5);
+}

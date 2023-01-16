@@ -1,0 +1,51 @@
+<div class="choice">
+    <span>
+        <button mat-icon-button (click)="viewTime()">
+          <div *ngIf="global.hideTime==true ; then viewGrillTagIcon else ViewSchemaTagIcon"></div>
+          <ng-template #viewGrillTagIcon>
+              <span class="material-symbols-outlined">
+                  table_view
+              </span>
+    </ng-template>
+
+    <ng-template #ViewSchemaTagIcon>
+        <span class="material-symbols-outlined" matTooltip="Changer l'affichage">
+                      table_view
+               </span>
+    </ng-template>
+    </button>
+    </span>
+    <span>
+        <button mat-icon-button (click)="timesExport.exportTable( 'csv',{fileName: 'data'})" matTooltip="Télécharger les données">
+            <span class="material-symbols-outlined">
+                download
+            </span>
+    </button>
+    </span>
+    <span>
+        <button mat-raised-button matTooltip="Avoir le temps global/sur scene" color="primary" (click)="globalTime()">
+            {{this.analyse.typeTime}}
+        </button>
+    </span>
+</div>
+<div [hidden]="!global.hideTime">
+    <canvas id="myChart2"></canvas>
+</div>
+<div [hidden]="global.hideTime">
+    <table mat-table matTableExporter [dataSource]="timeSource" class="mat-elevation-z8 example-table-container" #timesExport="matTableExporter" [ngClass]="global.isChecked == true ? 'moon-table' : 'sun-mode'">
+        <ng-container matColumnDef="fistname">
+            <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> Prénom </th>
+            <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> {{element.lastname}} </td>
+        </ng-container>
+        <ng-container matColumnDef="lastname">
+            <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> nom </th>
+            <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> {{element.firstname}} </td>
+        </ng-container>
+        <ng-container matColumnDef="count">
+            <th mat-header-cell *matHeaderCellDef class="head" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> Temps </th>
+            <td mat-cell *matCellDef="let element" [ngClass]="global.isChecked == true ? 'moon-color' : 'sun-color'"> {{element.count}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayerdColumnsNumber; sticky: true" class="sticky-head"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayerdColumnsNumber;"></tr>
+    </table>
+</div>

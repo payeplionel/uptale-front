@@ -1,0 +1,44 @@
+.contain {
+    margin: 2px;
+    max-width: 45vw;
+    height: 60vh;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+    justify-content: space-between;
+    gap: 10px;
+    .item {
+        width: 20vw;
+        height: 45%;
+        div:first-child {
+            margin-left: auto;
+            margin-right: auto;
+            height: max-content;
+            width: max-content;
+            text-align: center;
+        }
+        div:nth-child(2) {
+            margin-top: 5px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 20vw;
+            max-width: 20vw;
+            height: 20vw;
+        }
+    }
+}
+
+.background-loading {
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 10px;
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position-x: -200%;
+    }
+}

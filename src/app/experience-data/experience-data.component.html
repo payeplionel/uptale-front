@@ -1,0 +1,21 @@
+<div>{{experience.experienceId}}</div>
+<div>{{experience.experienceName}}</div>
+<div class="action-data">
+    <div>
+        <button mat-icon-button disabled>
+            <span>{{experience.date | date: 'dd/MM/yyyy'}}</span>
+        </button>
+    </div>
+    <div>
+        <span class="icon icon-group" (click)="onOpenGroupView(experience.experienceId)" matTooltip="Grouper les données"></span>
+    </div>
+    <div>
+        <span class="icon icon-add" matTooltip="Ajouter des données" (click)="onOpenAddView(experience.experienceId)"></span>
+    </div>
+    <div>
+        <span class="icon icon-view" matTooltip="Voir la structure" (click)="onOpenStructureView(experience.experienceId)"></span>
+    </div>
+    <div>
+        <span class="icon" [ngClass]="global.loadingExperience == true ? 'icon-loading' : 'icon-delete'" matTooltip="Supprimer le jeu de données" (click)="onDeleteExperience(experience.experienceId)"></span>
+    </div>
+</div>

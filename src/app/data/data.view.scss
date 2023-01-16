@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@700&family=Ubuntu:wght@300&display=swap');
+* {
+    font-family: 'Rowdies', cursive;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+div:first-child {
+    background-color: rgba($color: #fff8f800, $alpha: 0);
+    margin: auto;
+    width: 50vw;
+    max-height: 80vh;
+    padding: 10px;
+    overflow: auto;
+    table {
+        width: 100%;
+        .icon {
+            display: flex;
+            height: 3vw;
+            width: 3vw;
+            border: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+    }
+}
+
+textarea {
+    width: 80vw;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icon-check {
+    background-image: url(../../assets/icons/check.png);
+    background-size: cover;
+}
+
+.icon-check:hover {
+    background-image: url(../../assets/icons/check.gif);
+    background-size: cover;
+}
+
+.icon-loading {
+    background-image: url(../../assets/icons/loading.gif);
+    background-size: cover;
+}

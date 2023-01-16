@@ -1,0 +1,19 @@
+<form [formGroup]="exportFileForm" (ngSubmit)="onSubmitForm()">
+    <div class="contain">
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Nom du jeu de données :</mat-label>
+                <input matInput placeholder="nom des données" name="experienceName" [formControlName]="'experienceName'" />
+            </mat-form-field>
+        </div>
+        <div>
+            <button type="button" mat-stroked-button color="accent" class="filename"><label for="file">{{filename}}</label></button>
+            <input type="file" id="file" class="inputfile" #UploadFileInput (change)="onFileChange($event)"
+                   multiple="multiple" accept=".csv" [formControlName]="'file'"/>
+        </div>
+        <div>
+            <button mat-button type="button" mat-dialog-close>Annuler</button>
+            <button mat-button [mat-dialog-close]="true" cdkFocusInitial type="submit" [disabled]="!exportFileForm.valid">Importer</button>
+        </div>
+    </div>
+</form>

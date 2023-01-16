@@ -1,0 +1,64 @@
+.contain{
+  max-width: 80vw;
+  height: 80vh;
+  overflow: auto;
+  .gestion{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    button{
+      margin-bottom: 20px;
+    }
+  }
+  table{
+    width: 90%;
+    max-height: 50%;
+    overflow: auto;
+    .actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .icon {
+        display: flex;
+        justify-content: space-evenly;
+        height: 3vw;
+        width: 3vw;
+        border: hidden;
+        border-radius: 15px;
+        cursor: pointer;
+      }
+    }
+    .icon-delete {
+      background-image: url(../../assets/icons/delete.png);
+      background-size: cover;
+    }
+
+    .icon-delete:hover {
+      background-image: url(../../assets/icons/delete.gif);
+      background-size: cover;
+    }
+
+    .icon-check {
+      background-image: url(../../assets/icons/check.png);
+      background-size: cover;
+    }
+
+    .icon-check:hover {
+      background-image: url(../../assets/icons/check.gif);
+      background-size: cover;
+    }
+  }
+}
+
+.example-panel-red.mat-select-panel {
+  background: rgba(255, 0, 0, 0.5);
+}
+
+.example-panel-green.mat-select-panel {
+  background: rgba(0, 255, 0, 0.5);
+}
+
+.example-panel-blue.mat-select-panel {
+  background: rgba(0, 0, 255, 0.5);
+}

@@ -1,0 +1,31 @@
+<div>
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Scènes </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label> Scènes </mat-label>
+                    <textarea cols="50" matInput [(ngModel)]="element.sceneName"> </textarea>
+                </mat-form-field>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Statut </th>
+            <td mat-cell *matCellDef="let element" (click)="changeStatus(element.sceneId)">
+                <mat-slide-toggle [checked]="element.optional">
+                    <div *ngIf="element.optional == false; then blockObligatoire else blockpasObligatoire"></div>
+                    <ng-template #blockObligatoire> Pas Obligatoire </ng-template>
+                    <ng-template #blockpasObligatoire> Obligatoire </ng-template>
+                </mat-slide-toggle>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <span class="icon" matTooltip="Valider le nom" [ngClass]="global.action == true ? 'icon-loading' : 'icon-check'" (click)="updateScene(element.sceneId, element.sceneName)"></span>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

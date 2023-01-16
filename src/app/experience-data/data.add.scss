@@ -1,0 +1,30 @@
+.contain {
+    display: flex;
+    flex-direction: column;
+    div:last-child {
+        padding-top: 1vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.filename {
+    width: 12vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#nom {
+    min-width: 50vw;
+}

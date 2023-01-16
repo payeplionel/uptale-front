@@ -1,0 +1,30 @@
+<div class="container">
+    <table mat-table [dataSource]="groupsSource">
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> Dates </th>
+            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Nom du groupe </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label> Groupes </mat-label>
+                    <textarea matInput [(ngModel)]="element.groupName"> </textarea>
+                </mat-form-field>
+            </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <div class="actions">
+                    <span class="icon" [ngClass]="global.action == true ? 'icon-loading' : 'icon-delete'" (click)="deleteGroups(element.groupId)"></span>
+                    <span class="icon" [ngClass]="global.action == true ? 'icon-loading' : 'icon-check'" (click)="updateGroups(element.groupId, element.groupName)"></span>
+                </div>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

@@ -1,0 +1,43 @@
+.contain {
+    div:nth-child(2) {
+        height: 75vh;
+        overflow: auto;
+        table {
+            padding: 1%;
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            td,
+            th {
+                padding: 0.5vh;
+            }
+            .true-response {
+                color: #26de81;
+            }
+            .false-response {
+                color: #ff7979;
+            }
+            .response {
+                color: #487eb0;
+            }
+            .icon {
+                display: flex;
+                justify-content: space-evenly;
+                height: 3vw;
+                width: 3vw;
+                border: hidden;
+                border-radius: 15px;
+                cursor: pointer;
+            }
+            .icon-information {
+                background-image: url(../../assets/icons/information.png);
+                background-size: cover;
+            }
+            .icon-information:hover {
+                background-image: url(../../assets/icons/information.gif);
+                background-size: cover;
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+.contain {
+    padding: 0.5vh;
+    max-height: 90vh;
+    overflow: auto;
+    .import {
+      display: flex;
+      gap: 10px;
+      position: absolute;
+      right: 3vw;
+      top: 2.5vw;
+      margin-top: 0.5vh;
+    }
+    .choice-stats{
+      display: flex;
+      position: absolute;
+      right: 45vw;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+}
+
+.datas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

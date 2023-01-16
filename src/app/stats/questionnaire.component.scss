@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@700&family=Ubuntu:wght@300&display=swap');
+.contain {
+    width: 70vw;
+    height: 60vh;
+    overflow: auto;
+    font-family: 'Rowdies', cursive;
+    font-family: 'Ubuntu', sans-serif;
+    table {
+        padding: 1%;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        td,
+        th {
+            padding: 0.5vh;
+        }
+        .icon {
+            display: flex;
+            justify-content: space-evenly;
+            height: 3vw;
+            width: 3vw;
+            border: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+    }
+}

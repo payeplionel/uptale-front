@@ -1,0 +1,51 @@
+<div class="contain">
+    <div>
+        <button mat-raised-button color="primary" (click)="openRessourcesGestion()">Gestion des resources</button>
+    </div>
+
+    <div>
+        <table mat-table [dataSource]="quizSource">
+            <ng-container matColumnDef="learner">
+                <th mat-header-cell *matHeaderCellDef mat-content-column> Utilisateur </th>
+                <td mat-cell *matCellDef="let element" mat-content-column> {{element.learner.learnerFirstname}} {{element.learner.learnerLastname}}</td>
+            </ng-container>
+            <ng-container matColumnDef="hypothese">
+                <th mat-header-cell *matHeaderCellDef mat-content-column> hypotheses </th>
+                <td mat-cell *matCellDef="let element" mat-content-column class="responses"> {{element.hypothese}} </td>
+            </ng-container>
+            <ng-container matColumnDef="hypotheseSecondaire">
+                <th mat-header-cell *matHeaderCellDef mat-content-column> hypotheses Secondaires </th>
+                <td mat-cell *matCellDef="let element" mat-content-column class="responses"> {{element.hypotheseSecondaire}} </td>
+            </ng-container>
+            <ng-container matColumnDef="solution">
+                <th mat-header-cell *matHeaderCellDef mat-content-column> solutions </th>
+                <td mat-cell *matCellDef="let element" mat-content-column class="responses"> {{element.solution}} </td>
+            </ng-container>
+            <ng-container matColumnDef="correction">
+                <th mat-header-cell *matHeaderCellDef mat-content-column> correction </th>
+                <td mat-cell *matCellDef="let element">
+                    <span *ngIf="element.correction==null" class="response" matTooltip="Réponse inconnue">
+                    Inconnu
+                  </span>
+                    <span *ngIf="element.correction==1" class="true-response" matTooltip="Bonne réponse">
+                    Bonne réponse
+                  </span>
+                    <span *ngIf="element.correction==0" class="false-response" matTooltip="Mauvaise réponse">
+                    Mauvaise réponse
+                  </span>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let element">
+                    <div class="actions">
+                        <span class="icon icon-information" (click)="openRessourcesGroup(element.quizId)"></span>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
