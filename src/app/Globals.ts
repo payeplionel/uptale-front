@@ -26,7 +26,7 @@ export interface GraphData{
 
 @Injectable()
 export class Globals{
-    url: string = "http://127.0.0.1:8080/";
+    url: string = "http://15.188.63.253:8080/";
 
     isChecked: boolean=false;
     loading:boolean=false;
